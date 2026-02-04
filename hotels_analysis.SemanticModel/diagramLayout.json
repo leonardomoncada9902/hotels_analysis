@@ -72,6 +72,19 @@
             "width": 234
           },
           "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 940.22941723326176,
+            "y": 176.86468718063236
+          },
+          "nodeIndex": "full_database",
+          "nodeLineageTag": "ccb24068-d023-42d1-ba33-7bbfad60d636",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "All tables",

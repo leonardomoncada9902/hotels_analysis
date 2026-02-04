@@ -37,3 +37,16 @@ relationship AutoDetected_d6918609-37b3-4954-be37-47acee34b106
 	fromColumn: 2020.market_segment
 	toColumn: market_segment.market_segment
 
+relationship 933b3d44-d984-40d9-8d30-4385216ddd47
+	joinOnDateBehavior: datePartOnly
+	fromColumn: full_database.reservation_status_date
+	toColumn: LocalDateTable_ac91903e-cb66-4401-9a23-d6af2d23b515.Date
+
+relationship AutoDetected_23cdd407-5b98-4fae-a0d6-76a8f971277e
+	fromColumn: full_database.meal
+	toColumn: meal_cost.meal
+
+relationship AutoDetected_5b5b0344-7d1c-4b02-b365-50935ba539fb
+	fromColumn: full_database.market_segment
+	toColumn: market_segment.market_segment
+

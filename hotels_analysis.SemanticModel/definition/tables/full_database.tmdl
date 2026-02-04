@@ -1,0 +1,324 @@
+table full_database
+	lineageTag: ccb24068-d023-42d1-ba33-7bbfad60d636
+
+	column hotel
+		dataType: string
+		lineageTag: 6b734fd9-eb28-4a51-a87f-77ea82bbf3b2
+		summarizeBy: none
+		sourceColumn: hotel
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_canceled
+		dataType: int64
+		formatString: 0
+		lineageTag: a389ea95-5147-4374-82af-1e5fcd1cb34f
+		summarizeBy: sum
+		sourceColumn: is_canceled
+
+		annotation SummarizationSetBy = Automatic
+
+	column lead_time
+		dataType: int64
+		formatString: 0
+		lineageTag: 4d45bf4f-222d-4f2c-a471-afc69a1cb76a
+		summarizeBy: sum
+		sourceColumn: lead_time
+
+		annotation SummarizationSetBy = Automatic
+
+	column arrival_date_year
+		dataType: int64
+		formatString: 0
+		lineageTag: 29dcf6de-9ffa-4301-acaa-5dd3fc24c45a
+		summarizeBy: sum
+		sourceColumn: arrival_date_year
+
+		annotation SummarizationSetBy = Automatic
+
+	column arrival_date_month
+		dataType: string
+		lineageTag: 306bfd16-5edc-4c17-bec8-231637b2f07b
+		summarizeBy: none
+		sourceColumn: arrival_date_month
+
+		annotation SummarizationSetBy = Automatic
+
+	column arrival_date_week_number
+		dataType: int64
+		formatString: 0
+		lineageTag: 0ef35db9-edef-4e3a-a676-9d6bc78d233c
+		summarizeBy: sum
+		sourceColumn: arrival_date_week_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column arrival_date_day_of_month
+		dataType: int64
+		formatString: 0
+		lineageTag: c256c4e9-16e9-4a48-871a-fe2ad660a3f6
+		summarizeBy: sum
+		sourceColumn: arrival_date_day_of_month
+
+		annotation SummarizationSetBy = Automatic
+
+	column stays_in_weekend_nights
+		dataType: int64
+		formatString: 0
+		lineageTag: 4a4b367c-fdae-421c-bb28-7ec0683ce7c0
+		summarizeBy: sum
+		sourceColumn: stays_in_weekend_nights
+
+		annotation SummarizationSetBy = Automatic
+
+	column stays_in_week_nights
+		dataType: int64
+		formatString: 0
+		lineageTag: 0714639b-3a32-466e-b888-612db6fc5e72
+		summarizeBy: sum
+		sourceColumn: stays_in_week_nights
+
+		annotation SummarizationSetBy = Automatic
+
+	column adults
+		dataType: int64
+		formatString: 0
+		lineageTag: ebbd8018-4558-4372-90d8-6909928ccc3b
+		summarizeBy: sum
+		sourceColumn: adults
+
+		annotation SummarizationSetBy = Automatic
+
+	column children
+		dataType: int64
+		formatString: 0
+		lineageTag: a846e293-4d39-49aa-b883-d04b23f53150
+		summarizeBy: sum
+		sourceColumn: children
+
+		annotation SummarizationSetBy = Automatic
+
+	column babies
+		dataType: int64
+		formatString: 0
+		lineageTag: 6ddcf1b3-3817-490c-afdb-cc6f17657774
+		summarizeBy: sum
+		sourceColumn: babies
+
+		annotation SummarizationSetBy = Automatic
+
+	column meal
+		dataType: string
+		lineageTag: cfcb8daa-3c91-4d1d-9f2d-38b4b06dd4b0
+		summarizeBy: none
+		sourceColumn: meal
+
+		annotation SummarizationSetBy = Automatic
+
+	column country
+		dataType: string
+		lineageTag: 869a6989-bddf-40bb-a2a8-0c9055aa3d1e
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = Automatic
+
+	column market_segment
+		dataType: string
+		lineageTag: f58c4aa5-5fc1-4ffc-a338-8549072701e9
+		summarizeBy: none
+		sourceColumn: market_segment
+
+		annotation SummarizationSetBy = Automatic
+
+	column distribution_channel
+		dataType: string
+		lineageTag: fce20081-2404-4670-afa2-223462368a6a
+		summarizeBy: none
+		sourceColumn: distribution_channel
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_repeated_guest
+		dataType: int64
+		formatString: 0
+		lineageTag: 4d0ed3eb-8371-4019-975e-faa4b3028277
+		summarizeBy: sum
+		sourceColumn: is_repeated_guest
+
+		annotation SummarizationSetBy = Automatic
+
+	column previous_cancellations
+		dataType: int64
+		formatString: 0
+		lineageTag: 78a56860-deeb-41e1-8877-69770760be2f
+		summarizeBy: sum
+		sourceColumn: previous_cancellations
+
+		annotation SummarizationSetBy = Automatic
+
+	column previous_bookings_not_canceled
+		dataType: int64
+		formatString: 0
+		lineageTag: 57b9c555-381d-421b-b9bc-a3af61a9b937
+		summarizeBy: sum
+		sourceColumn: previous_bookings_not_canceled
+
+		annotation SummarizationSetBy = Automatic
+
+	column reserved_room_type
+		dataType: string
+		lineageTag: 41c8e3e7-6b93-4a03-8f36-d23ba73900ea
+		summarizeBy: none
+		sourceColumn: reserved_room_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column assigned_room_type
+		dataType: string
+		lineageTag: b3be7983-c698-4da4-ac98-25f81e7e85af
+		summarizeBy: none
+		sourceColumn: assigned_room_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column booking_changes
+		dataType: int64
+		formatString: 0
+		lineageTag: ed603a65-e04d-4fc4-9c24-0c3d351b4aa8
+		summarizeBy: sum
+		sourceColumn: booking_changes
+
+		annotation SummarizationSetBy = Automatic
+
+	column deposit_type
+		dataType: string
+		lineageTag: 0ef09142-c5e0-45f4-82ae-38a611c4c0c7
+		summarizeBy: none
+		sourceColumn: deposit_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column agent
+		dataType: string
+		lineageTag: 1247c5c0-9026-4648-bfe7-ea8f981f427e
+		summarizeBy: none
+		sourceColumn: agent
+
+		annotation SummarizationSetBy = Automatic
+
+	column company
+		dataType: string
+		lineageTag: 08fb1c03-2d82-4c0b-928a-bcc312caf513
+		summarizeBy: none
+		sourceColumn: company
+
+		annotation SummarizationSetBy = Automatic
+
+	column days_in_waiting_list
+		dataType: int64
+		formatString: 0
+		lineageTag: 5f3f3dfb-6231-4ba8-9ff0-f6ba4eaaa2f8
+		summarizeBy: sum
+		sourceColumn: days_in_waiting_list
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_type
+		dataType: string
+		lineageTag: a4020ba4-7dae-46fb-9eef-a0eb81e145a7
+		summarizeBy: none
+		sourceColumn: customer_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column adr
+		dataType: double
+		lineageTag: 02c7b7e8-6d31-44cc-baef-9e4266b134e7
+		summarizeBy: sum
+		sourceColumn: adr
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column required_car_parking_spaces
+		dataType: int64
+		formatString: 0
+		lineageTag: 39569c1d-1ded-407c-ba29-af7db6df759b
+		summarizeBy: sum
+		sourceColumn: required_car_parking_spaces
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_of_special_requests
+		dataType: int64
+		formatString: 0
+		lineageTag: 0984a4d5-6bd1-4ee7-affd-f8aa5197b6eb
+		summarizeBy: sum
+		sourceColumn: total_of_special_requests
+
+		annotation SummarizationSetBy = Automatic
+
+	column reservation_status
+		dataType: string
+		lineageTag: 211a0b9d-f2ce-45a8-9725-eb5b4ac397a4
+		summarizeBy: none
+		sourceColumn: reservation_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column reservation_status_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: a83a6b08-806f-49ec-b275-09da6eecad74
+		summarizeBy: none
+		sourceColumn: reservation_status_date
+
+		variation Variation
+			isDefault
+			relationship: 933b3d44-d984-40d9-8d30-4385216ddd47
+			defaultHierarchy: LocalDateTable_ac91903e-cb66-4401-9a23-d6af2d23b515.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column discount
+		dataType: double
+		lineageTag: d1ecf296-0418-4d1a-8521-1e4ba86a800c
+		summarizeBy: sum
+		sourceColumn: discount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column meal_cost
+		dataType: double
+		lineageTag: 62130722-bbbc-45b2-8b43-567a0fbcfb24
+		summarizeBy: sum
+		sourceColumn: meal_cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition full_database = m
+		mode: import
+		source =
+				let
+				    Source = Table.Combine({#"2018", #"2019", #"2020"}),
+				    #"Merged Queries" = Table.NestedJoin(Source, {"market_segment"}, market_segment, {"market_segment"}, "market_segment.1", JoinKind.LeftOuter),
+				    #"Expanded market_segment.1" = Table.ExpandTableColumn(#"Merged Queries", "market_segment.1", {"Discount"}, {"market_segment.1.Discount"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Expanded market_segment.1",{{"market_segment.1.Discount", "discount"}}),
+				    #"Merged Queries1" = Table.NestedJoin(#"Renamed Columns", {"meal"}, meal_cost, {"meal"}, "meal_cost", JoinKind.LeftOuter),
+				    #"Expanded meal_cost" = Table.ExpandTableColumn(#"Merged Queries1", "meal_cost", {"Cost"}, {"meal_cost.Cost"}),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Expanded meal_cost",{{"meal_cost.Cost", "meal_cost"}})
+				in
+				    #"Renamed Columns1"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
