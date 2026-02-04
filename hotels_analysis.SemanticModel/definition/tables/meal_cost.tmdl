@@ -23,7 +23,7 @@ table meal_cost
 		mode: import
 		source =
 				let
-				    Source = Excel.Workbook(File.Contents("C:\Users\leo\Documents\hotels_report\database\hotel_revenue_historical_full-2.xlsx"), null, true),
+				    Source = Excel.Workbook(Web.Contents("https://absentdata.com/wp-content/uploads/2021/05/hotel_revenue_historical_full-2.xlsx"), null, true),
 				    meal_cost_Sheet = Source{[Item="meal_cost",Kind="Sheet"]}[Data],
 				    #"Promoted Headers" = Table.PromoteHeaders(meal_cost_Sheet, [PromoteAllScalars=true]),
 				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Cost", type number}, {"meal", type text}})

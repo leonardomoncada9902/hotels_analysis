@@ -288,7 +288,7 @@ table 2020
 		mode: import
 		source =
 				let
-				    Source = Excel.Workbook(File.Contents("C:\Users\leo\Documents\hotels_report\database\hotel_revenue_historical_full-2.xlsx"), null, true),
+				    Source = Excel.Workbook(Web.Contents("https://absentdata.com/wp-content/uploads/2021/05/hotel_revenue_historical_full-2.xlsx"), null, true),
 				    #"2020_Sheet" = Source{[Item="2020",Kind="Sheet"]}[Data],
 				    #"Promoted Headers" = Table.PromoteHeaders(#"2020_Sheet", [PromoteAllScalars=true]),
 				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"hotel", type text}, {"is_canceled", Int64.Type}, {"lead_time", Int64.Type}, {"arrival_date_year", Int64.Type}, {"arrival_date_month", type text}, {"arrival_date_week_number", Int64.Type}, {"arrival_date_day_of_month", Int64.Type}, {"stays_in_weekend_nights", Int64.Type}, {"stays_in_week_nights", Int64.Type}, {"adults", Int64.Type}, {"children", Int64.Type}, {"babies", Int64.Type}, {"meal", type text}, {"country", type text}, {"market_segment", type text}, {"distribution_channel", type text}, {"is_repeated_guest", Int64.Type}, {"previous_cancellations", Int64.Type}, {"previous_bookings_not_canceled", Int64.Type}, {"reserved_room_type", type text}, {"assigned_room_type", type text}, {"booking_changes", Int64.Type}, {"deposit_type", type text}, {"agent", type any}, {"company", type any}, {"days_in_waiting_list", Int64.Type}, {"customer_type", type text}, {"adr", type number}, {"required_car_parking_spaces", Int64.Type}, {"total_of_special_requests", Int64.Type}, {"reservation_status", type text}, {"reservation_status_date", type date}})
