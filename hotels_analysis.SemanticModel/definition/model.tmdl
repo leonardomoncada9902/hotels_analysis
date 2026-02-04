@@ -10,5 +10,17 @@ annotation __PBI_TimeIntelligenceEnabled = 1
 
 annotation PBI_ProTooling = ["DevMode"]
 
+annotation PBI_QueryOrder = ["2018","2019","2020","market_segment","meal_cost"]
+
+ref table 2018
+ref table DateTableTemplate_42f74264-5ea6-470d-94b4-11d602d2b932
+ref table LocalDateTable_cd7610f8-49bf-46ca-bbb7-d31ec0b129b0
+ref table 2019
+ref table LocalDateTable_06ca4c5b-23d9-404e-8765-d867bcf49998
+ref table 2020
+ref table LocalDateTable_2dffd1ef-33f0-4dd1-b946-0eb6679a7b79
+ref table market_segment
+ref table meal_cost
+
 ref cultureInfo en-US
 

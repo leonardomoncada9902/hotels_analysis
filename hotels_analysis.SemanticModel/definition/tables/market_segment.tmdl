@@ -1,0 +1,36 @@
+table market_segment
+	lineageTag: ee08580c-e3cd-43e2-a49a-4ba332c219d5
+
+	column Discount
+		dataType: double
+		lineageTag: 28086524-24bb-44e8-a58e-6f69ffebf58c
+		summarizeBy: sum
+		sourceColumn: Discount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column market_segment
+		dataType: string
+		lineageTag: 6e5ee833-e894-423e-8884-1f9dfbe45594
+		summarizeBy: none
+		sourceColumn: market_segment
+
+		annotation SummarizationSetBy = Automatic
+
+	partition market_segment = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\leo\Documents\hotels_report\database\hotel_revenue_historical_full-2.xlsx"), null, true),
+				    market_segment_Sheet = Source{[Item="market_segment",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(market_segment_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Discount", type number}, {"market_segment", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

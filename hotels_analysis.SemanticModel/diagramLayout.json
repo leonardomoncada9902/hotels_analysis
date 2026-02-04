@@ -7,7 +7,73 @@
         "x": 0,
         "y": 0
       },
-      "nodes": [],
+      "nodes": [
+        {
+          "location": {
+            "x": 50.000000000000014,
+            "y": 291.86745070277266
+          },
+          "nodeIndex": "2018",
+          "nodeLineageTag": "8450d17d-8e63-403f-a625-2f82d1cd96df",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 706.22941723326176,
+            "y": 303.72937436126472
+          },
+          "nodeIndex": "2019",
+          "nodeLineageTag": "dbbc632c-78af-4a10-8d4b-2941e66980dd",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 623.03313563877634,
+            "y": -50
+          },
+          "nodeIndex": "2020",
+          "nodeLineageTag": "e711569c-f178-4e2e-9fd5-31641e7e2278",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 337.04254201328365,
+            "y": 409.56011145209413
+          },
+          "nodeIndex": "market_segment",
+          "nodeLineageTag": "ee08580c-e3cd-43e2-a49a-4ba332c219d5",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 337.01509416265617,
+            "y": 202.09443450946048
+          },
+          "nodeIndex": "meal_cost",
+          "nodeLineageTag": "9921694d-beb2-46d9-ab67-2cc9430b9d2d",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
       "name": "All tables",
       "zoomValue": 100,
       "pinKeyFieldsToTop": false,

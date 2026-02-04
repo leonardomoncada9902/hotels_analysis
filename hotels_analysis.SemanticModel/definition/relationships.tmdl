@@ -1,0 +1,39 @@
+relationship 28cd1d7b-4853-4be0-9f69-f37535759648
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 2018.reservation_status_date
+	toColumn: LocalDateTable_cd7610f8-49bf-46ca-bbb7-d31ec0b129b0.Date
+
+relationship 14a42824-4297-448c-8aaa-68fbe4ec3ced
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 2019.reservation_status_date
+	toColumn: LocalDateTable_06ca4c5b-23d9-404e-8765-d867bcf49998.Date
+
+relationship 32f4fe48-5d34-4118-b445-94e8915c220e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 2020.reservation_status_date
+	toColumn: LocalDateTable_2dffd1ef-33f0-4dd1-b946-0eb6679a7b79.Date
+
+relationship AutoDetected_a30bdd86-92e6-4708-a5c8-d11dc7560bfb
+	fromColumn: 2018.meal
+	toColumn: meal_cost.meal
+
+relationship AutoDetected_4059250b-21b9-4cd4-994d-10c39bb94546
+	fromColumn: 2019.meal
+	toColumn: meal_cost.meal
+
+relationship AutoDetected_f254e318-5e14-4884-97b3-bbf5050fd407
+	fromColumn: 2020.meal
+	toColumn: meal_cost.meal
+
+relationship AutoDetected_c27d42a8-08b8-4ca3-a6cf-4e810130b07e
+	fromColumn: 2018.market_segment
+	toColumn: market_segment.market_segment
+
+relationship AutoDetected_4f0d9d0b-b224-4a3b-b41c-33e6b3f91322
+	fromColumn: 2019.market_segment
+	toColumn: market_segment.market_segment
+
+relationship AutoDetected_d6918609-37b3-4954-be37-47acee34b106
+	fromColumn: 2020.market_segment
+	toColumn: market_segment.market_segment
+
