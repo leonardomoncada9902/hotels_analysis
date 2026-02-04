@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "hotels_analysis"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "f8720542-6fa1-43a9-b398-a8c41a45f193"
+  }
+}
