@@ -1,6 +1,164 @@
 table full_database
 	lineageTag: ccb24068-d023-42d1-ba33-7bbfad60d636
 
+	measure 'total reservations' = COUNTROWS('full_database')
+		formatString: 0
+		lineageTag: ccbd98fe-265a-4645-97f4-502754c9d19c
+
+	measure 'confirmed reservations' = CALCULATE(COUNTROWS('full_database'), 'full_database'[is_canceled] = 0)
+		formatString: 0
+		lineageTag: 8133e52a-02dd-4de0-a0dc-d0e9516c4f84
+
+	measure 'canceled reservations' = CALCULATE(COUNTROWS('full_database'), 'full_database'[is_canceled] = 1)
+		formatString: 0
+		lineageTag: d5c23216-67ca-4435-bc7e-2630ee9940ec
+
+	measure 'churn rate' = DIVIDE([canceled reservations], [total reservations], 0) * 100
+		lineageTag: fdcbe734-f1c1-4e0b-b92b-f146afd19a39
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'total nights' = CALCULATE(SUMX('full_database', [stays_in_week_nights] + [stays_in_weekend_nights]), 'full_database'[is_canceled] = 0)
+		formatString: 0
+		lineageTag: cd9f0c1f-7ca0-45d4-b52a-7a13db079e3f
+
+	measure 'average nights per reserve' = DIVIDE([total nights], [confirmed reservations], 0)
+		lineageTag: 826c5ece-c4d9-44fb-bdd6-da66dee54547
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'weekend nights' = CALCULATE(SUM('full_database'[stays_in_weekend_nights]), 'full_database'[is_canceled] = 0)
+		formatString: 0
+		lineageTag: b6567adf-604c-4898-aca4-8119c5bed0a2
+
+	measure 'week nights' = CALCULATE(SUM('full_database'[stays_in_week_nights]), 'full_database'[is_canceled] = 0)
+		formatString: 0
+		lineageTag: 46fdb686-737d-48a5-8921-526ed892bba5
+
+	measure 'percentage of weekend nights' = DIVIDE([weekend nights], [total nights], 0) * 100
+		lineageTag: 45aad8f4-e2fc-4209-ab8f-9832f56ac4c8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'gross revenue' = SUMX(FILTER('full_database', 'full_database'[is_canceled] = 0), 'full_database'[adr] * ('full_database'[stays_in_week_nights] + 'full_database'[stays_in_weekend_nights]))
+		lineageTag: f700fe0e-611e-4d78-a548-f1d9334c3a64
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'potencial revenue' = SUMX('full_database', 'full_database'[adr] * ('full_database'[stays_in_week_nights] + 'full_database'[stays_in_weekend_nights]))
+		lineageTag: 3be97b59-71d5-4b45-94db-3a57605c3c60
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'lost revenue' = SUMX(FILTER('full_database', 'full_database'[is_canceled] = 1), 'full_database'[adr] * ('full_database'[stays_in_week_nights] + 'full_database'[stays_in_weekend_nights]) * (1 - 'full_database'[discount]))
+		lineageTag: 3ab47373-2bf3-4085-bfef-0303fdd37058
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'average adr' = CALCULATE(AVERAGE('full_database'[adr]), 'full_database'[is_canceled] = 0)
+		lineageTag: b032e1c5-e6f5-4536-8647-205d41d98173
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'total discounts' = SUMX(FILTER('full_database', 'full_database'[is_canceled] = 0), [gross revenue] * 'full_database'[discount])
+		lineageTag: 484457cc-9007-4a22-9e60-1d6896043ce7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'average percentage of discount' = CALCULATE(AVERAGE('full_database'[discount]), 'full_database'[is_canceled] = 0) * 100
+		lineageTag: 31b22c91-3c8d-4404-915a-144957bafb1f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'revenue post discount' = [gross revenue] - [total discounts]
+		lineageTag: e0c84e8b-0945-46e1-9b95-e1874de1fef3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'meal costs' = SUMX(FILTER('full_database', 'full_database'[is_canceled]), 'full_database'[meal_cost] * ('full_database'[stays_in_week_nights] + 'full_database'[stays_in_weekend_nights]))
+		lineageTag: 868d9236-2cea-4bb9-84eb-084ab33b62e0
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'average meal cost per night' = CALCULATE(AVERAGE('full_database'[meal_cost]), 'full_database'[is_canceled] = 0)
+		lineageTag: 2e5546ea-efbf-4631-931c-d21bdab57d3c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'average cost per reserve' = DIVIDE([meal costs], [confirmed reservations], 0)
+		lineageTag: 1a04f93c-a7ff-4e35-86f9-5f7560d4e536
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'net revenue' = [gross revenue] - [total discounts] - [meal costs]
+		lineageTag: 87be6db1-1ab3-4794-a5ae-f138c9eb9720
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'net margin' = DIVIDE([net revenue], [gross revenue], 0) * 100
+		lineageTag: 48425480-98f6-45a5-b1e3-fabb1f45cda1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'net revenue per reserve' = DIVIDE([net revenue], [confirmed reservations], 0)
+		lineageTag: 4e6bf9ac-0e42-4991-86ec-2d6a00ae3b08
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'ner revenue per night' = DIVIDE([net revenue], [total nights], 0)
+		lineageTag: 9624f82a-d775-4c4f-b629-3acce95bff7b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'cancelations impact' = DIVIDE([lost revenue], [potencial revenue], 0) * 100
+		lineageTag: e47c5ee1-aedd-4eca-b793-c0160bc8d26c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'ratio lost vs real' = DIVIDE([lost revenue], [net revenue], 0) * 100
+		lineageTag: bdb406e8-a94f-4823-a85d-9d3c58f66410
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'total guests' = CALCULATE(SUMX('full_database', 'full_database'[adults] + 'full_database'[children] + 'full_database'[babies]), 'full_database'[is_canceled] = 0)
+		formatString: 0
+		lineageTag: 3baebd39-0eff-46c8-901e-c51766d6517a
+
+	measure 'net revenue per guest' = DIVIDE([net revenue], [total guests], 0)
+		lineageTag: 0f38b507-726b-4ef8-85b5-6394892f0f29
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'percentage repeated guest' = DIVIDE(CALCULATE(COUNTROWS('full_database'), 'full_database'[is_repeated_guest] = 1, 'full_database'[is_canceled] = 0), [confirmed reservations], 0) * 100
+		lineageTag: cb56177c-29fd-4a72-9625-97d460b1e639
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'average lead time' = CALCULATE(AVERAGE('full_database'[lead_time]), 'full_database'[is_canceled] = 0)
+		lineageTag: d4b409bd-78e1-4119-8087-b49ab1abc8cc
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'past year net revenue' = CALCULATE([net revenue], DATEADD('full_database'[reservation_status_date], -1, YEAR))
+		lineageTag: 7a2882b6-0f2d-484b-8614-5194476d77f6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'grow YoY' = DIVIDE([net revenue] - [past year net revenue], [past year net revenue], 0) * 100
+		lineageTag: f4e73c3d-5710-406a-b340-05932c174b48
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'past month net revenue' = CALCULATE([net revenue], DATEADD('full_database'[reservation_status_date], -1, MONTH))
+		lineageTag: 9891e9bc-cb84-440b-9d50-6863d9cae64c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'grow MoM' = DIVIDE([net revenue] - [past month net revenue], [past month net revenue], 0) * 100
+		lineageTag: b56d199d-f3ca-468f-992c-682babb415f9
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column hotel
 		dataType: string
 		lineageTag: 6b734fd9-eb28-4a51-a87f-77ea82bbf3b2
