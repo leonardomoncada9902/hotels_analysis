@@ -13,10 +13,9 @@ table full_database
 		formatString: 0
 		lineageTag: d5c23216-67ca-4435-bc7e-2630ee9940ec
 
-	measure 'churn rate' = DIVIDE([canceled reservations], [total reservations], 0) * 100
+	measure 'churn rate' = DIVIDE([canceled reservations], [total reservations], 0)
+		formatString: 0.0%;-0.0%;0.0%
 		lineageTag: fdcbe734-f1c1-4e0b-b92b-f146afd19a39
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'total nights' = CALCULATE(SUMX('full_database', [stays_in_week_nights] + [stays_in_weekend_nights]), 'full_database'[is_canceled] = 0)
 		formatString: 0
@@ -95,10 +94,11 @@ table full_database
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'net margin' = DIVIDE([net revenue], [gross revenue], 0) * 100
+	measure 'net margin' = ```
+			DIVIDE([net revenue], [gross revenue], 0) 
+			```
+		formatString: 0.0%;-0.0%;0.0%
 		lineageTag: 48425480-98f6-45a5-b1e3-fabb1f45cda1
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'net revenue per reserve' = DIVIDE([net revenue], [confirmed reservations], 0)
 		lineageTag: 4e6bf9ac-0e42-4991-86ec-2d6a00ae3b08
@@ -186,10 +186,9 @@ table full_database
 		annotation SummarizationSetBy = Automatic
 
 	column arrival_date_year
-		dataType: int64
-		formatString: 0
+		dataType: string
 		lineageTag: 29dcf6de-9ffa-4301-acaa-5dd3fc24c45a
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: arrival_date_year
 
 		annotation SummarizationSetBy = Automatic
@@ -428,7 +427,7 @@ table full_database
 
 	column reservation_status_date
 		dataType: dateTime
-		formatString: Long Date
+		formatString: Short Date
 		lineageTag: a83a6b08-806f-49ec-b275-09da6eecad74
 		summarizeBy: none
 		sourceColumn: reservation_status_date
@@ -472,9 +471,11 @@ table full_database
 				    #"Renamed Columns" = Table.RenameColumns(#"Expanded market_segment.1",{{"market_segment.1.Discount", "discount"}}),
 				    #"Merged Queries1" = Table.NestedJoin(#"Renamed Columns", {"meal"}, meal_cost, {"meal"}, "meal_cost", JoinKind.LeftOuter),
 				    #"Expanded meal_cost" = Table.ExpandTableColumn(#"Merged Queries1", "meal_cost", {"Cost"}, {"meal_cost.Cost"}),
-				    #"Renamed Columns1" = Table.RenameColumns(#"Expanded meal_cost",{{"meal_cost.Cost", "meal_cost"}})
+				    #"Renamed Columns1" = Table.RenameColumns(#"Expanded meal_cost",{{"meal_cost.Cost", "meal_cost"}}),
+				    #"Filtered Rows1" = Table.SelectRows(#"Renamed Columns1", each [reservation_status_date] > #date(2017, 12, 31)),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Filtered Rows1",{{"arrival_date_year", type text}})
 				in
-				    #"Renamed Columns1"
+				    #"Changed Type"
 
 	annotation PBI_NavigationStepName = Navigation
 

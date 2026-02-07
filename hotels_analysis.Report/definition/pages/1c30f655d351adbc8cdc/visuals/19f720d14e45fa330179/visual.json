@@ -1,0 +1,294 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
+  "name": "19f720d14e45fa330179",
+  "position": {
+    "x": 442.5287356321839,
+    "y": 86.206896551724142,
+    "z": 8002,
+    "height": 156.32183908045977,
+    "width": 579.31034482758616,
+    "tabOrder": 11
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "full_database"
+                            }
+                          },
+                          "Name": "Variation",
+                          "Property": "reservation_status_date"
+                        }
+                      },
+                      "Hierarchy": "Date Hierarchy"
+                    }
+                  },
+                  "Level": "Year"
+                }
+              },
+              "queryRef": "full_database.reservation_status_date.Variation.Date Hierarchy.Year",
+              "nativeQueryRef": "reservation_status_date Year"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "full_database"
+                            }
+                          },
+                          "Name": "Variation",
+                          "Property": "reservation_status_date"
+                        }
+                      },
+                      "Hierarchy": "Date Hierarchy"
+                    }
+                  },
+                  "Level": "Month"
+                }
+              },
+              "queryRef": "full_database.reservation_status_date.Variation.Date Hierarchy.Month",
+              "nativeQueryRef": "reservation_status_date Month"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "full_database"
+                            }
+                          },
+                          "Name": "Variation",
+                          "Property": "reservation_status_date"
+                        }
+                      },
+                      "Hierarchy": "Date Hierarchy"
+                    }
+                  },
+                  "Level": "Day"
+                }
+              },
+              "queryRef": "full_database.reservation_status_date.Variation.Date Hierarchy.Day",
+              "nativeQueryRef": "reservation_status_date Day"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "full_database"
+                    }
+                  },
+                  "Property": "hotel"
+                }
+              },
+              "queryRef": "full_database.hotel",
+              "nativeQueryRef": "hotel"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "full_database"
+                    }
+                  },
+                  "Property": "country"
+                }
+              },
+              "queryRef": "full_database.country",
+              "nativeQueryRef": "country"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "full_database"
+                    }
+                  },
+                  "Property": "total reservations"
+                }
+              },
+              "queryRef": "full_database.total reservations",
+              "nativeQueryRef": "total reservations"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "full_database"
+                        }
+                      },
+                      "Property": "is_canceled"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(full_database.is_canceled)",
+              "nativeQueryRef": "Sum of is_canceled"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "full_database"
+                    }
+                  },
+                  "Property": "net revenue"
+                }
+              },
+              "queryRef": "full_database.net revenue",
+              "nativeQueryRef": "net revenue"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "full_database"
+                  }
+                },
+                "Property": "total reservations"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "87.86207713014596D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "full_database.total reservations"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "85.21839588084632D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(full_database.is_canceled)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "94.40229911122387D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "full_database.net revenue"
+          }
+        }
+      ],
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnFormatting": [
+        {
+          "properties": {
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "full_database.reservation_status_date.Variation.Date Hierarchy.Year"
+          }
+        },
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1000D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "full_database.net revenue"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
