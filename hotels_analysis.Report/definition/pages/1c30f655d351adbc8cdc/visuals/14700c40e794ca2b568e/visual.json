@@ -4,10 +4,10 @@
   "position": {
     "x": 19.607843137254903,
     "y": 423.52941176470586,
-    "z": 5000,
+    "z": 4000,
     "height": 278.43137254901961,
     "width": 817.64705882352939,
-    "tabOrder": 4
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "lineChart",
@@ -251,27 +251,6 @@
             }
           }
         }
-      ],
-      "dataPoint": [
-        {
-          "properties": {
-            "fill": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 2,
-                      "Percent": -0.5
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "full_database.net revenue"
-          }
-        }
       ]
     },
     "visualContainerObjects": {
@@ -289,6 +268,17 @@
               "expr": {
                 "Literal": {
                   "Value": "'Historico de ingresos'"
+                }
+              }
+            },
+            "background": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#e1c233'"
+                    }
+                  }
                 }
               }
             }
@@ -420,5 +410,98 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "5dfaec4aae1772e4f3ee",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "full_database"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "reservation_status_date"
+                  }
+                },
+                "Hierarchy": "Date Hierarchy"
+              }
+            },
+            "Level": "Year"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "b3fd577ed9dbeef992cf",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "full_database"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "reservation_status_date"
+                  }
+                },
+                "Hierarchy": "Date Hierarchy"
+              }
+            },
+            "Level": "Month"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "f1a621ceedf4b19d8b68",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "full_database"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "reservation_status_date"
+                  }
+                },
+                "Hierarchy": "Date Hierarchy"
+              }
+            },
+            "Level": "Day"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "16b2f2bf3e4b495645b3",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "full_database"
+              }
+            },
+            "Property": "net revenue"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
   "name": "19f720d14e45fa330179",
   "position": {
-    "x": 442.5287356321839,
-    "y": 86.206896551724142,
-    "z": 8002,
-    "height": 156.32183908045977,
-    "width": 579.31034482758616,
-    "tabOrder": 11
+    "x": 740,
+    "y": 86.25,
+    "z": 8000,
+    "height": 322.5,
+    "width": 515,
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "tableEx",
@@ -149,7 +149,8 @@
                 }
               },
               "queryRef": "Sum(full_database.is_canceled)",
-              "nativeQueryRef": "Sum of is_canceled"
+              "nativeQueryRef": "Sum of is canceled",
+              "displayName": "Sum of is canceled"
             },
             {
               "field": {
@@ -172,16 +173,27 @@
         "sort": [
           {
             "field": {
-              "Measure": {
+              "HierarchyLevel": {
                 "Expression": {
-                  "SourceRef": {
-                    "Entity": "full_database"
+                  "Hierarchy": {
+                    "Expression": {
+                      "PropertyVariationSource": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "full_database"
+                          }
+                        },
+                        "Name": "Variation",
+                        "Property": "reservation_status_date"
+                      }
+                    },
+                    "Hierarchy": "Date Hierarchy"
                   }
                 },
-                "Property": "total reservations"
+                "Level": "Year"
               }
             },
-            "direction": "Descending"
+            "direction": "Ascending"
           }
         ]
       }
@@ -193,7 +205,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "87.86207713014596D"
+                  "Value": "83.46480574296557D"
                 }
               }
             }
@@ -207,7 +219,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "85.21839588084632D"
+                  "Value": "63.78789411768857D"
                 }
               }
             }
@@ -221,13 +233,41 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "94.40229911122387D"
+                  "Value": "62.61839015134882D"
                 }
               }
             }
           },
           "selector": {
             "metadata": "full_database.net revenue"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "36.667997146661904D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "full_database.reservation_status_date.Variation.Date Hierarchy.Day"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "74.81468007663287D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "full_database.reservation_status_date.Variation.Date Hierarchy.Month"
           }
         }
       ],
@@ -285,6 +325,47 @@
           },
           "selector": {
             "metadata": "full_database.net revenue"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "7D"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.3
+                    }
+                  }
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "2D"
+                }
+              }
+            }
           }
         }
       ]

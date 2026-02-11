@@ -39,7 +39,7 @@ table full_database
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'gross revenue' = SUMX(FILTER('full_database', 'full_database'[is_canceled] = 0), 'full_database'[adr] * ('full_database'[stays_in_week_nights] + 'full_database'[stays_in_weekend_nights]))
+	measure 'gross revenue' = (SUMX(FILTER('full_database', 'full_database'[is_canceled] = 0), 'full_database'[adr] * ('full_database'[stays_in_week_nights] + 'full_database'[stays_in_weekend_nights])))
 		lineageTag: f700fe0e-611e-4d78-a548-f1d9334c3a64
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -59,7 +59,7 @@ table full_database
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'total discounts' = SUMX(FILTER('full_database', 'full_database'[is_canceled] = 0), [gross revenue] * 'full_database'[discount])
+	measure 'total discounts' = CALCULATE(SUMX(FILTER('full_database', 'full_database'[is_canceled] = 0), [gross revenue] * 'full_database'[discount]))
 		lineageTag: 484457cc-9007-4a22-9e60-1d6896043ce7
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -158,6 +158,19 @@ table full_database
 		lineageTag: b56d199d-f3ca-468f-992c-682babb415f9
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure waterfall_meal = -[meal costs]
+		lineageTag: e9148890-2dd8-41ed-b5f4-f6b8fced602e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure waterfall_discounts = -[total discounts]
+		lineageTag: ec1a77e5-6614-4fec-b74a-aa35dded03c4
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure cancelation_state = IF('full_database'[churn rate] < 30, "good", IF('full_database'[churn rate] < 40, "regular", "Critic"))
+		lineageTag: 310ab682-74bf-430f-8a47-1bc48b6d21bc
 
 	column hotel
 		dataType: string

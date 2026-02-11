@@ -4,10 +4,10 @@
   "position": {
     "x": 1002.8846153846154,
     "y": 8.6538461538461533,
-    "z": 6000,
+    "z": 5000,
     "height": 58.653846153846153,
     "width": 252.88461538461539,
-    "tabOrder": 6
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "advancedSlicerVisual",
@@ -277,23 +277,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "b6d329c100f0f026dd93",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "full_database"
-              }
-            },
-            "Property": "hotel"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }
