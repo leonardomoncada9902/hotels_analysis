@@ -151,8 +151,6 @@ SUMX(
 )
 ```
 
-> 📁 Todas las medidas DAX están documentadas en: [`/docs/Medidas_DAX.txt`](docs/Medidas_DAX.txt)
-
 ## 📊 Dashboard y Visualizaciones
 
 ### Estructura del Dashboard (2 Páginas)
