@@ -21,7 +21,6 @@
 - [Insights Clave](#-insights-clave)
 - [Tecnologías Utilizadas](#️-tecnologías-utilizadas)
 - [Estructura del Repositorio](#-estructura-del-repositorio)
-- [Contacto](#-contacto)
 
 ---
 
