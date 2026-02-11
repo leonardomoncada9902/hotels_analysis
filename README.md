@@ -5,7 +5,11 @@
 
 > Un análisis completo de revenue management y métricas operacionales para hoteles utilizando Power BI, enfocado en optimización de ingresos y reducción de cancelaciones.
 
-![Dashboard Preview](images/hotels_analisys_ss1.png)
+### Pagina 1 Overview ejecutivo
+![Dashboard Preview page 1](images/hotels_analisys_ss1.png)
+
+### Pagina 2 Analisis por segmento
+![Dashboard Preview page 2](images/hotels_analisys_ss2.png)
 
 ## 📋 Tabla de Contenidos
 
@@ -16,9 +20,7 @@
 - [Dashboard y Visualizaciones](#-dashboard-y-visualizaciones)
 - [Insights Clave](#-insights-clave)
 - [Tecnologías Utilizadas](#️-tecnologías-utilizadas)
-- [Instalación y Uso](#-instalación-y-uso)
 - [Estructura del Repositorio](#-estructura-del-repositorio)
-- [Próximos Pasos](#-próximos-pasos)
 - [Contacto](#-contacto)
 
 ---
@@ -193,3 +195,94 @@ SUMX(
 - ✅ Año (2018, 2019, 2020)
 - ✅ Tipo de Hotel (City / Resort)
 - ✅ País (top 20)
+
+## 💡 Insights Clave
+
+### 🔴 Hallazgos Críticos
+
+1. **Tasa de Cancelación Elevada**
+   - 37.2% de reservas canceladas = ~$X millones en revenue perdido
+   - Segmento "Online TA" tiene la tasa más alta (~45%)
+   - Recomendación: Implementar políticas de depósito más estrictas
+
+2. **Impacto de Descuentos**
+   - Descuentos del 30% (OTAs) erosionan márgenes significativamente
+   - Segmento "Direct" (10%) es 3x más rentable que "Online TA"
+   - Recomendación: Incentivar reservas directas
+
+3. **Estacionalidad Marcada**
+   - Agosto: +120% vs febrero (mes más bajo)
+   - City Hotel: Demanda más estable que Resort Hotel
+   - Oportunidad: Dynamic pricing en temporada alta
+
+### 🟢 Oportunidades Identificadas
+
+1. **Segmentos de Alto Valor**
+   - Corporate (15% descuento): Margen 55%, baja cancelación (18%)
+   - Direct (10% descuento): Margen 62%, tasa cancelación 25%
+   - Acción: Campañas de fidelización B2B
+
+2. **Optimización de Costos**
+   - Meal type "FB" (Full Board): Costo $21.99/noche pero ADR +35%
+   - ROI positivo en paquetes all-inclusive
+   - Implementar: Upselling estratégico de meal plans
+
+3. **Mercados Geográficos**
+   - Top 3 países: PRT, GBR, FRA (70% del revenue)
+   - Mercados emergentes: USA, ESP (alto ADR, bajo volumen)
+   - Inversión: Marketing focalizado en mercados de alto ADR
+
+---
+
+## 🛠️ Tecnologías Utilizadas
+
+| Tecnología | Uso | Versión |
+|------------|-----|---------|
+| ![Power BI](https://img.shields.io/badge/Power%20BI-F2C811?style=flat&logo=powerbi&logoColor=black) | Visualización y Dashboard | Desktop (2024) |
+| ![DAX](https://img.shields.io/badge/DAX-FF6C37?style=flat) | Lenguaje de medidas | - |
+| ![Excel](https://img.shields.io/badge/Excel-217346?style=flat&logo=microsoftexcel&logoColor=white) | Procesamiento de datos | 2021+ |
+| ![Git](https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white) | Control de versiones | 2.x |
+
+### Skills Demostrados
+
+✅ **Data Analysis & Business Intelligence**  
+✅ **Revenue Management & Hospitality Analytics**  
+✅ **DAX (Data Analysis Expressions)**  
+✅ **Data Modeling & ETL**  
+✅ **KPI Design & Dashboard Development**  
+✅ **Storytelling with Data**
+
+## 📁 Estructura del Repositorio
+
+```
+hotels_analysis/
+│
+├── 📂 hotels_analysis.Report/            # Definiciones del reporte
+│   ├── definition/
+│   │   └── pages/                        # Páginas del dashboard
+│   └── StaticResources/                  # Imágenes y recursos
+│
+├── 📂 hotels_analysis.SemanticModel/     # Modelo semántico
+│   ├── definition/
+│   │   ├── tables/                       # Definiciones de tablas
+│   │   ├── relationships.tmdl            # Relaciones del modelo
+│   │   └── model.tmdl                    # Configuración del modelo
+│   └── diagramLayout.json                # Layout del diagrama
+│
+├── 📄 hotels_analysis.pbip               # Archivo principal de Power BI
+├── 📄 .gitignore                         # Archivos ignorados por Git
+└── 📄 README.md                          # Este archivo
+
+```
+
+---
+
+<div align="center">
+
+### 💼 Proyecto desarrollado para Portafolio Profesional
+
+**Si este proyecto te resulta útil, no olvides darle una ⭐**
+
+[⬆ Volver arriba](#-hotel-revenue-analysis-dashboard)
+
+</div>
