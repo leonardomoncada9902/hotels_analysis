@@ -633,14 +633,7 @@
                   "Value": "true"
                 }
               }
-            },
-            "showActionsInTooltips": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
+            },,
             "themedBackground": {
               "solid": {
                 "color": {
